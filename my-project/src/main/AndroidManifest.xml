@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.livro_android_casa_do_codigo">
         <activity
-            android:name=".NavigationActivity"
+            android:name=".view.NavigationActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
