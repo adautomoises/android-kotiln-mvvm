@@ -4,14 +4,17 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import tech.salvatore.livro_android_kotlin_paulo_salvatore.model.domain.Creature
-import tech.salvatore.livro_android_kotlin_paulo_salvatore.model.repository.CreatureRepository
+import tech.salvatore.livro_android_kotlin_paulo_salvatore.model.repository.CreaturesRepository
 import javax.inject.Inject
 
 @HiltViewModel
-class CreaturesViewModel @Inject constructor(creatureRepository: CreatureRepository) : ViewModel() {
+class CreaturesViewModel @Inject constructor(private val creaturesRepository: CreaturesRepository) :
+    ViewModel() {
     val creatures = MutableLiveData<List<Creature>>()
 
     init {
-        creatures.value = creatureRepository.creatures
+        creatures.value = creaturesRepository.creatures
     }
+
+    fun findCreature(number: Int) = creaturesRepository.findCreature(number)
 }

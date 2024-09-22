@@ -5,7 +5,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class CreatureRepository @Inject constructor() {
+class CreaturesRepository @Inject constructor() {
     val creatures: List<Creature>
 
     init {
@@ -31,4 +31,6 @@ class CreatureRepository @Inject constructor() {
             creature9,
         )
     }
+
+    fun findCreature(number: Int) = creatures.find { it.number.toInt() == number }
 }
